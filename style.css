@@ -1,0 +1,18 @@
+body{
+    background-color:rgb(20, 20, 73);
+}
+.nav{
+    border:3px solid;
+    border-color: gray;
+    color:white;
+    text-align: center;
+}
+.navbar{
+    color:yellow;
+}
+.nad{
+    display:flex;
+    justify-content: space-around;
+    gap:1px;
+}
+

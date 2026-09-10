@@ -1,5 +1,6 @@
 body{
-    background-color:rgb(20, 20, 73);
+    background-color:black;
+    min-height:200px;
 }
 .nav{
     border:3px solid;
@@ -15,4 +16,121 @@ body{
     justify-content: space-around;
     gap:1px;
 }
+.container{
+    text-align:center;
+    color:white;
+}
+.booking-panel {
+         width: 360px;
+            padding: 20px;
+            margin-left:auto;
+        }
 
+ .seats-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        
+.card {
+            background-color: #1a2232;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #252f44;
+            color:white;
+        }
+
+ .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+.dropdown-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+.select-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+.select-wrapper select {
+            width: 100%;
+            background-color: #242f47;
+            color: #ffffff;
+            border: 1px solid #334261;
+            border-radius: 6px;
+            padding: 12px 35px 12px 16px;
+            font-size: 14px;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+.select-wrapper::after {
+            content: "▼";
+            font-size: 10px;
+            color: #a0aec0;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+.stats-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+.stats-row span {
+            font-weight: 500;
+        }
+ .empty-message {
+            color: #a0aec0;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+.total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px dashed #334261;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
+.total-label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+.total-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #cca464;
+        }
+ .confirm-btn {
+            width: 100%;
+            background-color: #cca464;
+            color: #121620;
+            border: none;
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+ .confirm-btn:hover {
+            background-color: #bfa355;
+        }
+    

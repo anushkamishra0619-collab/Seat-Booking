@@ -1,15 +1,39 @@
+@keyframes blink-border1 {
+  0%, 100% {
+    border-color: rgb(31, 179, 212);
+  }
+  50% {
+    border-color: transparent; /* Makes it look like it turns off */
+  }
+}
+@keyframes blink-border2 {
+  0%, 100% {
+    border-color: rgb(3, 12, 96);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+
+
 body{
-    background-image:url("https://png.pngtree.com/thumb_back/fh260/background/20240913/pngtree-black-abstract-wallpaper-featuring-intricate-patterns-against-a-dark-background-creating-image_16193717.jpg");
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8r881Y9yt4XmqJCQY7yZrdHHQuGFr_PyTrapfqVY4tw&s=10");
     min-height:200px;
 }
 .nav{
     border:3px solid;
     border-color: gray;
-    color:white;
+    color:black;
     text-align: center;
+   animation: blink-border2 1s infinite;
 }
+
 .navbar{
-    color:yellow;
+    color:rgb(0, 30, 255);
 }
 .nad{
     display:flex;
@@ -18,13 +42,16 @@ body{
 }
 .container{
     text-align:center;
-    color:white;
+    color:black;
 }
 .booking-panel {
-         width: 360px;
-            padding: 20px;
-            margin-left:auto;
-        }
+        align-items: flex-start;
+        width: 360px;
+        padding: 20px;
+        margin-left:auto;
+}
+
+        
 
  .seats-header {
             font-size: 18px;
@@ -34,13 +61,15 @@ body{
 
         
 .card {
-            background-color: #1a2232;
+            background-color: #8375bb;
             border-radius: 8px;
             padding: 24px;
             margin-bottom: 20px;
             border: 1px solid #252f44;
             color:white;
-        }
+             animation: blink-border1 1.5s infinite;
+}
+        
 
  .card-title {
             font-size: 20px;
@@ -93,7 +122,7 @@ body{
             font-weight: 500;
         }
  .empty-message {
-            color: #a0aec0;
+            color: black;
             font-size: 15px;
             margin-bottom: 25px;
         }
@@ -102,7 +131,7 @@ body{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px dashed #334261;
+            border-top: 1px dashed black;
             padding-top: 20px;
             margin-bottom: 20px;
         }
@@ -133,4 +162,179 @@ body{
  .confirm-btn:hover {
             background-color: #bfa355;
         }
+    .seating-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .row-label {
+      font-weight: bold;
+      width: 20px;
+      text-align: left;
+      font-size: 14px;
+      color: black;
+    }
+    .seat {
+      width: 35px;
+      height: 35px;
+      background-color: transparent;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .seat.vip {
+      border: 2px solid #d4af37;
+      color: #d4af37;
+    }
+    .seat.vip:hover {
+      background-color: rgba(212, 175, 55, 0.2);
+    }
+    .seat.premium {
+      border: 2px solid #ff4a85;
+      color: #ff4a85;
+    }
+    .seat.premium:hover {
+      background-color: rgba(255, 74, 133, 0.2);
+    }
+    .seat.regular {
+      border: 2px solid #388bfd;
+      color: #388bfd;
+    }
+    .seat.regular:hover {
+      background-color: rgba(56, 139, 253, 0.2);
+    }
+
+    .seat.selected {
+      background-color: #2ea44f ;
+      border-color: #2ea44f;
+      color: #ffffff ;
+      box-shadow: 0 0 10px #2ea44f;
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 12px;
+      color: black;
+      border-top: 1px solid #30363d;
+      padding-top: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-box {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+    .legend-box.vip { border: 2px solid #d4af37; }
+    .legend-box.premium { border: 2px solid #ff4a85; }
+    .legend-box.regular { border: 2px solid #388bfd; }
+    .legend-box.selected { border:2px solid #2ea44f; }
+    .legend-box.booked { border:2px solid black; }
     
+
+    .info-panel {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #c9d1d9;
+    }
+     .looking{
+            perspective: 1000px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        .row {
+            display: flex;
+        }
+
+        .seat {
+            background-color: #444451;
+            height: 26px;
+            width: 32px;
+            margin: 6px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .seat.selected {
+            background-color: #6feaf6;
+        }
+
+        .seat.occupied {
+            background-color: #fff;
+            cursor: not-allowed;
+        }
+
+        .seat:not(.occupied):hover {
+            transform: scale(1.2);
+        }
+
+        
+        .legend {
+            background: rgba(162, 26, 26, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .legend li {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .legend small {
+            margin-left: 5px;
+        }
+
+        p.text {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+
+        p.text span {
+            color: #6feaf6;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #6feaf6;
+            border: none;
+            color: #242333;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #4cd3e0;
+        }
+   

@@ -96,9 +96,7 @@ occupiedSeats.forEach(function(seatId) {
 function getCategory(row) {
     if (row === "A" || row === "B"){
         return "VIP";
-    }
-    if ( row === "C"|| row === "D"|| row === "E"){
-    
+    }else if( row === "C"|| row === "D"|| row === "E"){
         return "Premium";
     }
     return "Regular";

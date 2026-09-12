@@ -162,6 +162,31 @@ body{
  .confirm-btn:hover {
             background-color: #bfa355;
         }
+ .cancel-btn {
+      width: 100%;
+      background-color: #d9534f;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+ .cancel-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+ .cancel-btn:hover:not(:disabled) {
+      background-color: #c9302c;
+    }
+ .cancel-hint {
+      color: black;
+      font-size: 13px;
+      margin-top: 12px;
+      text-align: center;
+    }
     .seating-chart {
       display: flex;
       flex-direction: column;
@@ -216,13 +241,20 @@ body{
     .seat.regular:hover {
       background-color: rgba(56, 139, 253, 0.2);
     }
-    
-
     .seat.selected {
       background-color: #2ea44f ;
       border-color: #2ea44f;
       color: #ffffff ;
       box-shadow: 0 0 10px #2ea44f;
+    }
+    .seat.cancel-selected {
+      background-color: #d9534f;
+      border-color: #d9534f;
+      color: #ffffff;
+      box-shadow: 0 0 10px #d9534f;
+    }
+    .seat.occupied:hover {
+      background-color: rgba(217, 83, 79, 0.25);
     }
     .legend {
       display: flex;

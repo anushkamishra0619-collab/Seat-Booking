@@ -9,6 +9,8 @@ const rows = document.querySelectorAll(".row");
 const seats = document.querySelectorAll(".seat");
 const confirmButton =
     document.querySelector(".confirm-btn");
+const cancelButton =
+    document.querySelector(".cancel-btn");
 const emptyMessage =
     document.querySelector(".empty-message");
 const totalPrice =
@@ -17,7 +19,9 @@ const selects =
     document.querySelectorAll(".select-wrapper select");
 const stats =
     document.querySelectorAll(".stats-row span");
+const storageKey = "bookedSeats";
 let selectedSeats = [];
+let seatsToCancel = [];
 let occupiedSeats = [];
 rows.forEach(function(row) {
     const rowName =
@@ -67,6 +71,28 @@ rows.forEach(function(row) {
         );
     });
 });
+
+const savedSeats = JSON.parse(
+    localStorage.getItem(storageKey) || "[]"
+);
+if (Array.isArray(savedSeats)) {
+    savedSeats.forEach(function(seatId) {
+        if (!occupiedSeats.includes(seatId)) {
+            occupiedSeats.push(seatId);
+        }
+    });
+}
+occupiedSeats.forEach(function(seatId) {
+    const seat =
+        document.querySelector(
+            `.seat[data-seat="${seatId}"]`
+        );
+    if (seat) {
+        seat.classList.add("occupied");
+        seat.style.cursor = "pointer";
+    }
+});
+
 function getCategory(row) {
     if (
         row === "A" ||
@@ -107,7 +133,19 @@ seats.forEach(function(seat) {
             if (
                 seat.classList.contains("occupied")
             ) {
-
+                const seatId = seat.dataset.seat;
+                if (seat.classList.contains("cancel-selected")) {
+                    seat.classList.remove("cancel-selected");
+                    seatsToCancel = seatsToCancel.filter(
+                        function(id) {
+                            return id !== seatId;
+                        }
+                    );
+                } else {
+                    seat.classList.add("cancel-selected");
+                    seatsToCancel.push(seatId);
+                }
+                updateCancelButton();
                 return;
             }
 
@@ -196,7 +234,6 @@ confirmButton.addEventListener(
             );
 
             return;
-
         }
 
         let total = 0;
@@ -222,7 +259,7 @@ confirmButton.addEventListener(
                         "occupied"
                     );
                     seat.style.cursor =
-                        "not-allowed";}
+                        "pointer";}
                 if (
                     !occupiedSeats.includes(
                         seatId
@@ -231,6 +268,10 @@ confirmButton.addEventListener(
                 {occupiedSeats.push(seatId);
                 }
             }
+        );
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(occupiedSeats)
         );
         alert(
             "Booking Confirmed!\n\n" +
@@ -248,17 +289,57 @@ confirmButton.addEventListener(
 
     }
 );
+cancelButton.addEventListener(
+    "click",
+    function() {
+        if (seatsToCancel.length === 0) {
+            return;
+        }
+
+        seatsToCancel.forEach(function(seatId) {
+            const seat =
+                document.querySelector(
+                    `.seat[data-seat="${seatId}"]`
+                );
+            if (seat) {
+                seat.classList.remove(
+                    "occupied",
+                    "cancel-selected"
+                );
+                seat.style.cursor = "pointer";
+            }
+        });
+
+        occupiedSeats = occupiedSeats.filter(
+            function(seatId) {
+                return !seatsToCancel.includes(seatId);
+            }
+        );
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(occupiedSeats)
+        );
+
+        seatsToCancel = [];
+        updateCancelButton();
+        updateStats();
+        applyFilters();
+        alert("Selected bookings cancelled.");
+    }
+);
+
+function updateCancelButton() {
+    cancelButton.disabled = seatsToCancel.length === 0;
+}
 
 selects[0].addEventListener(
     "change",
     applyFilters
 );
-
 selects[1].addEventListener(
     "change",
     applyFilters
 );
-
 function applyFilters() {
 
     const selectedCategory =
@@ -322,3 +403,4 @@ function updateStats() {
         remaining;}
 updateStats();
 updateBookingSummary();
+updateCancelButton();

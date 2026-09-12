@@ -15,8 +15,8 @@
     </div>
     <div class="nad">
         <h4>November 14, 2026</h4>
-        <h5>The Riverside Auditorium</h5>
-        <h6>60 seats</h6>
+        <h5>Amphitheatre</h5>
+        <h6>80 seats</h6>
     </div>
     </div>
     <div class="container">
@@ -42,8 +42,8 @@
             B
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
@@ -57,7 +57,7 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
         </div>
 
@@ -87,8 +87,8 @@
             F
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
@@ -102,7 +102,7 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
         </div>
         <div class="row">
@@ -132,8 +132,8 @@
             J
             <div class="seat"></div>
             <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
@@ -147,13 +147,18 @@
             <h2 class="card-title">Filter Seats</h2>
             <div class="dropdown-container">
                 <div class="select-wrapper">
-                    <select>
-                        <option>All categories</option>
+                    <select id="cateogarySelect">
+                        <option value="all">All categories</option>
+                        <option value="vip">VIP</option>
+                        <option value="premium">premium</option>
+                        <option value="regular">Regular</option>
                     </select>
                 </div>
                 <div class="select-wrapper">
                     <select>
-                        <option>All seats</option>
+                        <option value="all seats">All seats</option>
+                        <option value="available only">Available only</option>
+                        <option value="Booked only">Booked only</option>
                     </select>
                 </div>
             </div>
@@ -168,7 +173,7 @@
             
             <div class="total-row">
                 <div class="total-label">Total</div>
-                <div class="total-price">₹0</div>
+                <div class="total-price">Rs0</div>
             </div>
 
             <button class="confirm-btn">Confirm Booking</button>
@@ -199,5 +204,6 @@
     </div>
   </div>
 </div>
+<script src="script.js"></script>
     </body>
     </html>

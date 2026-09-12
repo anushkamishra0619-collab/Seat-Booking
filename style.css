@@ -1,6 +1,6 @@
 @keyframes blink-border1 {
   0%, 100% {
-    border-color: rgb(31, 179, 212);
+    border-color: rgb(235, 11, 191);
   }
   50% {
     border-color: transparent; /* Makes it look like it turns off */
@@ -65,9 +65,9 @@ body{
             border-radius: 8px;
             padding: 24px;
             margin-bottom: 20px;
-            border: 1px solid #252f44;
+            border: 5px solid #252f44;
             color:white;
-             animation: blink-border1 1.5s infinite;
+            animation: blink-border1 1s infinite;
 }
         
 
@@ -196,26 +196,27 @@ body{
       user-select: none;
     }
     .seat.vip {
-      border: 2px solid #d4af37;
-      color: #d4af37;
+      border: 2px solid #e50808;
+      color: #d81512;
     }
     .seat.vip:hover {
       background-color: rgba(212, 175, 55, 0.2);
     }
     .seat.premium {
-      border: 2px solid #ff4a85;
-      color: #ff4a85;
+      border: 2px solid #222dc6;
+      color: #1a28e4;
     }
     .seat.premium:hover {
       background-color: rgba(255, 74, 133, 0.2);
     }
     .seat.regular {
-      border: 2px solid #388bfd;
-      color: #388bfd;
+      border: 2px solid #14d617;
+      color: #38fd7d;
     }
     .seat.regular:hover {
       background-color: rgba(56, 139, 253, 0.2);
     }
+    
 
     .seat.selected {
       background-color: #2ea44f ;
@@ -281,11 +282,6 @@ body{
 
         .seat.selected {
             background-color: #6feaf6;
-        }
-
-        .seat.occupied {
-            background-color: #fff;
-            cursor: not-allowed;
         }
 
         .seat:not(.occupied):hover {

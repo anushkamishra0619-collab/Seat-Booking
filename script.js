@@ -100,8 +100,6 @@ function getCategory(row) {
     ) {
         return "VIP";
     }
-
-
     if (
         row === "C" ||
         row === "D" ||

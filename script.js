@@ -82,15 +82,6 @@ if (Array.isArray(savedSeats)) {
         }
     });
 }
-function getCategory(row) {
-    if (row === "A" || row === "B"){
-        return "VIP";
-    }
-    if( row === "C"|| row === "D"|| row === "E"){
-        return "Premium";
-    }
-    return "Regular";
-}
 occupiedSeats.forEach(function(seatId) {
     const seat =
         document.querySelector(
@@ -101,6 +92,19 @@ occupiedSeats.forEach(function(seatId) {
         seat.style.cursor = "pointer";
     }
 });
+function getCategory(row) {
+    switch (row) {
+        case "A":
+        case "B":
+            return "VIP";
+        case "C":
+        case "D":
+        case "E":
+            return "Premium";
+        default:
+            return "Regular";
+    }
+}
 function getPrice(seatId) {
 
     const row =

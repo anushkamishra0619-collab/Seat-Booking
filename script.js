@@ -25,6 +25,8 @@ const upcomingEventButtons =
     document.querySelectorAll(".event-item");
 const eventTitle =
     document.querySelector("#event-title");
+const eventDate =
+    document.querySelector("#event-date");
 const storageKey = "bookedSeats";
 let selectedSeats = [];
 let seatsToCancel = [];
@@ -32,7 +34,9 @@ let occupiedSeats = [];
 upcomingEventButtons.forEach(function(eventButton) {
     eventButton.addEventListener("click", function() {
         const title = eventButton.dataset.eventTitle;
+        const date = eventButton.dataset.eventDate;
         eventTitle.textContent = title;
+        eventDate.textContent = date;
         eventTitle.style.setProperty("--event-title-width", title.length + "ch");
         eventTitle.style.setProperty("--event-title-steps", title.length);
         eventTitle.style.animation = "none";

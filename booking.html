@@ -10,17 +10,53 @@
 <body>
     <nav class="site-navbar" aria-label="Main navigation">
         <a class="site-brand" href="#home" aria-label="SeatSpotter home">
-            <span class="site-logo" aria-hidden="true">S</span>
+            <span class="site-logo welcome-logo" aria-hidden="true">S</span>
             <span>SeatSpotter</span>
         </a>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#contact" id="contact-link">Contact Details</a>
     </nav>
+    <section class="choice-section" aria-labelledby="choice-title">
+        <h2 id="choice-title">Show Your Choice</h2>
+        <div class="choice-options" role="group" aria-label="Choose an interest">
+            <button class="choice-option" type="button" data-choice="Art" data-page="art.html">Art</button>
+            <button class="choice-option" type="button" data-choice="Music" data-page="music.html">Music</button>
+            <button class="choice-option" type="button" data-choice="Dancing" data-page="dancing.html">Dancing</button>
+            <button class="choice-option" type="button" data-choice="Drama" data-page="drama.html">Drama</button>
+        </div>
+        <p class="choice-status" id="choice-status" aria-live="polite">Choose an option to continue.</p>
+        <p class="choice-description" id="choice-description" aria-live="polite"></p>
+        <div class="choice-events" id="choice-events" hidden>
+            <h3 id="choice-events-title"></h3>
+            <div class="choice-event-list" id="choice-event-list"></div>
+        </div>
+    </section>
+    <div class="upcoming-events">
+        <h2>Upcoming Events</h2>
+        <p>Stay tuned for more exciting campus experiences.</p>
+        <div class="event-list">
+            <button class="event-item" type="button" data-event-title="Garba Night">
+                <h3>Garba Night</h3>
+                <span>Dance, music, and festive energy</span>
+                <strong>Ticket: Rs 300</strong>
+            </button>
+            <button class="event-item" type="button" data-event-title="Salsa Night">
+                <h3>Salsa Night</h3>
+                <span>Rhythm, movement, and connection</span>
+                <strong>Ticket: Rs 250</strong>
+            </button>
+            <button class="event-item" type="button" data-event-title="Euphonia">
+                <h3>Euphonia</h3>
+                <span>An evening of live musical performances</span>
+                <strong>Ticket: Rs 400</strong>
+            </button>
+        </div>
+    </div>
     <div class="nav rotating-border">
-        <h3 class="navbar">An Evening At</h3>
+        <h3 class="navbar">An Upcoming Evening At</h3>
     <div class="event">
-        <h1>Navadhyay Akgec Fresher's Event</h1>
+        <h1 id="event-title">Navadhyay Akgec Fresher's Event</h1>
     </div>
     <div class="nad">
         <h4>November 14, 2026</h4>
@@ -216,37 +252,16 @@
         <span>Booked</span>
       </div>
     </div>
-        <div class="upcoming-events">
-            <h2>Upcoming Events</h2>
-            <p>Stay tuned for more exciting campus experiences.</p>
-            <div class="event-list">
-                <div class="event-item">
-                    <h3>Garba Night</h3>
-                    <span>Dance, music, and festive energy</span>
-                    <strong>Ticket: Rs 300</strong>
-                </div>
-                <div class="event-item">
-                    <h3>Salsa Night</h3>
-                    <span>Rhythm, movement, and connection</span>
-                    <strong>Ticket: Rs 250</strong>
-                </div>
-                <div class="event-item">
-                    <h3>Euphonia</h3>
-                    <span>An evening of live musical performances</span>
-                    <strong>Ticket: Rs 400</strong>
-                </div>
-            </div>
-            <div class="contact-modal" id="contact-modal" hidden>
-                <div class="contact-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-                    <button class="contact-close" id="contact-close" type="button" aria-label="Close contact details">&times;</button>
-                    <h2 id="contact-title">Contact Details</h2>
-                    <p><strong>Anushka Mishra</strong></p>
-                    <a href="tel:912056789">912056789</a>
-                    <p><strong>Bhasha Singh</strong></p>
-                    <a href="tel:8599065610">8599065610</a>
-                    <p><strong>Mansi Yadav</strong></p>
-                    <a href="tel:6543890124">6543890124</a>
-                </div>
+        <div class="contact-modal" id="contact-modal" hidden>
+            <div class="contact-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+                <button class="contact-close" id="contact-close" type="button" aria-label="Close contact details">&times;</button>
+                <h2 id="contact-title">Contact Details</h2>
+                <p><strong>Anushka Mishra</strong></p>
+                <a href="tel:912056789">912056789</a>
+                <p><strong>Bhasha Singh</strong></p>
+                <a href="tel:8599065610">8599065610</a>
+                <p><strong>Mansi Yadav</strong></p>
+                <a href="tel:6543890124">6543890124</a>
             </div>
         </div>
   </div>

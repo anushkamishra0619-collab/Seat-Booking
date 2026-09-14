@@ -19,10 +19,32 @@ const selects =
     document.querySelectorAll(".select-wrapper select");
 const stats =
     document.querySelectorAll(".stats-row span");
+const choiceOptions =
+    document.querySelectorAll(".choice-option");
+const upcomingEventButtons =
+    document.querySelectorAll(".event-item");
+const eventTitle =
+    document.querySelector("#event-title");
 const storageKey = "bookedSeats";
 let selectedSeats = [];
 let seatsToCancel = [];
 let occupiedSeats = [];
+upcomingEventButtons.forEach(function(eventButton) {
+    eventButton.addEventListener("click", function() {
+        const title = eventButton.dataset.eventTitle;
+        eventTitle.textContent = title;
+        eventTitle.style.setProperty("--event-title-width", title.length + "ch");
+        eventTitle.style.setProperty("--event-title-steps", title.length);
+        eventTitle.style.animation = "none";
+        void eventTitle.offsetWidth;
+        eventTitle.style.animation = "type-event-title 8s steps(" + title.length + ", end) infinite, blink-caret 0.7s step-end infinite";
+    });
+});
+choiceOptions.forEach(function(option) {
+    option.addEventListener("click", function() {
+        window.location.href = option.dataset.page;
+    });
+});
 rows.forEach(function(row) {
     const rowName =
         row.firstChild.textContent.trim();
@@ -37,8 +59,7 @@ rows.forEach(function(row) {
 
                 const seatId =
                     rowName + seatNumber;
-
-            occupiedSeats.push(seatId);
+             occupiedSeats.push(seatId);
         }
 
     });
@@ -207,7 +228,7 @@ function updateBookingSummary() {
         }
     );
     totalPrice.textContent =
-        "₹" + total;
+        "Rs" + total;
     confirmButton.disabled =
         false;
 
@@ -268,7 +289,7 @@ confirmButton.addEventListener(
             "Booking Confirmed!\n\n" +
             "Seats: " +
             selectedSeats.join(", ") +
-            "\nTotal: ₹" +
+            "\nTotal: Rs" +
             total
         );
 
@@ -318,7 +339,6 @@ cancelButton.addEventListener(
         alert("Selected bookings cancelled.");
     }
 );
-
 function updateCancelButton() {
     cancelButton.disabled = seatsToCancel.length === 0;
 }

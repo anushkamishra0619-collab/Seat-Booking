@@ -331,6 +331,31 @@ selects[1].addEventListener(
     "change",
     applyFilters
 );
+const contactLink = document.querySelector("#contact-link");
+const contactModal = document.querySelector("#contact-modal");
+const contactClose = document.querySelector("#contact-close");
+contactLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    contactModal.hidden = false;
+    contactClose.focus();
+});
+
+contactClose.addEventListener("click", function() {
+    contactModal.hidden = true;
+    contactLink.focus();
+});
+contactModal.addEventListener("click", function(event) {
+    if (event.target === contactModal) {
+        contactModal.hidden = true;
+        contactLink.focus();
+    }
+});
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" && !contactModal.hidden) {
+        contactModal.hidden = true;
+        contactLink.focus();
+    }
+});
 function applyFilters() {
 
     const selectedCategory =
@@ -339,47 +364,50 @@ function applyFilters() {
     const selectedStatus =
         selects[1].value.toLowerCase();
 
-    seats.forEach(function(seat) {
+    rows.forEach(function(row) {
+        const rowSeats =
+            row.querySelectorAll(".seat");
+        let rowHasVisibleSeat = false;
 
-        const category =
-            seat.dataset.category.toLowerCase();
-        const seatId =
-            seat.dataset.seat;
-        const isOccupied =
-            occupiedSeats.includes(
-                seatId
-            );
-        let categoryMatch =
-            true;
-        if (selectedCategory !== "all") {
+        rowSeats.forEach(function(seat) {
+            const category =
+                seat.dataset.category.toLowerCase();
+            const seatId =
+                seat.dataset.seat;
+            const isOccupied =
+                occupiedSeats.includes(
+                    seatId
+                );
+
+            let categoryMatch =
+                true;
+            if (selectedCategory !== "all") {
                 categoryMatch =
-                category ===
-                selectedCategory;
+                    category === selectedCategory;
+            }
 
-        }
-        let statusMatch =
-            true;
-        if (selectedStatus === "all seats") {
-             statusMatch = true;}
-        else if (selectedStatus === "available only") {
-             statusMatch =
-                !isOccupied;}
-        else if (selectedStatus === "booked only") {
-             statusMatch =
-                isOccupied;}
-        if (
-            categoryMatch &&
-            statusMatch
-        ) {
-           seat.style.display =
-                "";
-        }
-        else {
-           seat.style.display =
-                "none";}
-            
+            let statusMatch = true;
+            if (selectedStatus === "available only") {
+                statusMatch = !isOccupied;
+            } else if (selectedStatus === "booked only") {
+                statusMatch = isOccupied;
+            }
+
+            const shouldShow =
+                categoryMatch && statusMatch;
+
+            seat.style.display =
+                shouldShow ? "" : "none";
+
+            if (shouldShow) {
+                rowHasVisibleSeat = true;
+            }
         });
-    }
+
+        row.style.display =
+            rowHasVisibleSeat ? "" : "none";
+    });
+}
 applyFilters();
 function updateStats() {
     const booked =

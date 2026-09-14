@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="nav">
+    <nav class="site-navbar" aria-label="Main navigation">
+        <a class="site-brand" href="#home" aria-label="SeatSpotter home">
+            <span class="site-logo" aria-hidden="true">S</span>
+            <span>SeatSpotter</span>
+        </a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact" id="contact-link">Contact Details</a>
+    </nav>
+    <div class="nav rotating-border">
         <h3 class="navbar">An Evening At</h3>
     <div class="event">
-        <h1>Navadhyay</h1>
+        <h1>Navadhyay Akgec Fresher's Event</h1>
     </div>
     <div class="nad">
         <h4>November 14, 2026</h4>
@@ -20,11 +29,12 @@
     </div>
     </div>
     <div class="container">
+        <div class="seating-layout">
+        <div class="looking">
         <h2>Select Your Seats</h2>
         <div class="stage">
             STAGE
         </div>
-        <div class="looking">
         <div class="screen"></div>
         <div class="row">
             A
@@ -143,7 +153,7 @@
     </div>
 
     <div class="booking-panel">
-        <div class="card">
+        <div class="card rotating-border">
             <h2 class="card-title">Filter Seats</h2>
             <div class="dropdown-container">
                 <div class="select-wrapper">
@@ -167,7 +177,7 @@
                 <div>Remaining: <span>60</span></div>
             </div>
         </div>
-        <div class="card">
+        <div class="card rotating-border">
             <h2 class="card-title">Booking Summary</h2>
             <div class="empty-message">No seats selected yet.</div>
             
@@ -180,6 +190,8 @@
             <div class="cancel-hint">Select a booked seat to cancel it.</div>
             <button class="cancel-btn" disabled>Cancel Selected Seats</button>
         </div>
+    </div>
+
     </div>
 
     <div class="legend">
@@ -204,6 +216,39 @@
         <span>Booked</span>
       </div>
     </div>
+        <div class="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <p>Stay tuned for more exciting campus experiences.</p>
+            <div class="event-list">
+                <div class="event-item">
+                    <h3>Garba Night</h3>
+                    <span>Dance, music, and festive energy</span>
+                    <strong>Ticket: Rs 300</strong>
+                </div>
+                <div class="event-item">
+                    <h3>Salsa Night</h3>
+                    <span>Rhythm, movement, and connection</span>
+                    <strong>Ticket: Rs 250</strong>
+                </div>
+                <div class="event-item">
+                    <h3>Euphonia</h3>
+                    <span>An evening of live musical performances</span>
+                    <strong>Ticket: Rs 400</strong>
+                </div>
+            </div>
+            <div class="contact-modal" id="contact-modal" hidden>
+                <div class="contact-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+                    <button class="contact-close" id="contact-close" type="button" aria-label="Close contact details">&times;</button>
+                    <h2 id="contact-title">Contact Details</h2>
+                    <p><strong>Anushka Mishra</strong></p>
+                    <a href="tel:912056789">912056789</a>
+                    <p><strong>Bhasha Singh</strong></p>
+                    <a href="tel:8599065610">8599065610</a>
+                    <p><strong>Mansi Yadav</strong></p>
+                    <a href="tel:6543890124">6543890124</a>
+                </div>
+            </div>
+        </div>
   </div>
 </div>
 <script src="script.js"></script>
